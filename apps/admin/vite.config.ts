@@ -7,6 +7,7 @@ import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   resolve: {
@@ -28,6 +29,7 @@ export default defineConfig({
     Layouts(),
 
     AutoImport({
+      resolvers: [ElementPlusResolver()],
       imports: [
         'vue',
         'vue-router',
@@ -55,6 +57,7 @@ export default defineConfig({
     }),
 
     Components({
+      resolvers: [ElementPlusResolver()],
       dirs: ['src/components', 'src/views'],
     }),
   ],
